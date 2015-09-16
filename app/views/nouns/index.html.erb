@@ -1,0 +1,29 @@
+<style>
+  .main-image {
+    width: 300px;
+  }
+</style>
+<%= form_tag nouns_path, method: :get, class: "form-inline" do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", class: "btn" %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Noun</th>
+      <th>Meaning</th>
+      <th>Image</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @nouns.each do |n| %>
+    <tr>
+      <td><%= n.word %></td>
+      <td><%= n.meaning %></td>
+      <td><%= image_tag n.image_url, class: "main-image" %></td>
+      <td><%= link_to "Edit", noun_path(n.id), class: "btn" %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

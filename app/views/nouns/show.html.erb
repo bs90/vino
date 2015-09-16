@@ -1,0 +1,35 @@
+<style>
+  .one-image {
+    width: 150px;
+    float: left;
+    cursor: pointer;
+  }
+  .main-image {
+    width: 300px;
+  }
+</style>
+<%= form_for(@noun) do |f| %>
+  <%= f.label :word %>
+  <%= f.text_field :word, class: 'form-control' %>
+
+  <%= f.label :meaning %>
+  <%= f.text_field :meaning, class: 'form-control' %>
+
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url, class: 'form-control image_url_text' %>
+
+  <%= image_tag @noun.image_url, class: "main-image" %>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
+<% @images.each do |image| %>
+  <%= image_tag image, class: "one-image" %>
+<% end %>
+
+<script>
+  $(".one-image").click(function(){
+    $(".image_url_text").val($(this).attr("src"));
+    $(".main-image").attr("src",$(this).attr("src"));
+  });
+</script>
