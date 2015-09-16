@@ -8,6 +8,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="header z-depth-1">
+    <div class="container">
+      <%= link_to "vino", root_path, class: "logo btn-flat" %>
+      <div class="users">
+        <% if user_signed_in? %>
+          Hello, <%= current_user.email %>!
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-flat" %>
+        <% else %>
+          <%= link_to "Sign in", user_session_path, class: "btn-flat" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <%= yield %>
   </div>

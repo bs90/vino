@@ -1,4 +1,5 @@
 class NounsController < ApplicationController
+  before_filter :authenticate_user!
   def index
     @nouns = if params[:query].present?
       Noun.where("LOWER(word) LIKE ?", "%#{params[:query].to_s.downcase}%")

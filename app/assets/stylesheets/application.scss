@@ -1,1 +1,41 @@
 @import "materialize";
+
+body {
+  background-color: #eee;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  background-color: #2cc36b;
+  .logo {
+    line-height: 50px;
+    font-size: 30px;
+    float: left;
+  }
+  .users {
+    font-size: 15px;
+    float: right;
+  }
+}
+
+.users-form {
+  background-color: white;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+  padding: 20px;
+  input {
+    padding-left: 10px;
+  }
+  .actions {
+    text-align: center;
+    line-height: 35px;
+    a {
+      width: 300px;
+    }
+  }
+}
